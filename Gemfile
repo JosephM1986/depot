@@ -15,10 +15,10 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-#Use jquery as the Javascript library
+
+# Use jquery as the Javascript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -60,7 +60,6 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'webdrivers', '~> 3.0'
   # Easy installation and use of chromedriver to run system tests with Chrome
-
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
