@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_16_030428) do
+ActiveRecord::Schema.define(version: 2019_08_19_052139) do
+
+  create_table "accounts", force: :cascade do |t|
+    t.string "number"
+    t.decimal "balance", precision: 10, scale: 2, default: "0.0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -43,6 +50,11 @@ ActiveRecord::Schema.define(version: 2019_08_16_030428) do
     t.text "description"
     t.string "image_url"
     t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
     user = User.find_by(name: params[:name])
     if user.try(:authenticate, params[:password])
       # debugger
-      #had to change to user.id instead of user_id
       session[:user_id] = user.id
       redirect_to admin_url
     else

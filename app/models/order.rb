@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+  before_validation :normalize_credit_card_number
   has_many :line_items, dependent: :destroy
 
   enum pay_type: {
@@ -14,5 +15,10 @@ class Order < ApplicationRecord
       item.cart_id = nil
       line_items << item
     end
+  end
+
+  protected
+  def normalize_credit_card_number
+    self.cc_number.gsub(/[-\s],'')
   end
 end

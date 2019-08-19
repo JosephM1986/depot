@@ -21,7 +21,7 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
 assert_equal 1, cart.line_items.size
 assert_equal ruby_book, cart.line_items[0].product
 
-         get "/orders/new"assert_response :success
+         get "/orders/new" assert_response :success
          assert_select 'legend', 'Please Enter Your Details'
 
           perform_enqueued_jobs do
@@ -33,7 +33,8 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
                    pay_type: "Check"}
                    }
 
-                   follow_redirect!assert_response :success
+                   follow_redirect!
+assert_response :success
                    assert_select 'h1', "Your Pragmatic Catalog"
                     cart = Cart.find(session[:cart_id])
                      assert_equal 0, cart.line_items.size
