@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>Pragprog Books Online Store</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= auto_discovery_link_tag(:atom, products_url(format: 'atom')) %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -45,7 +46,7 @@
             <% end %>
           </div>
         <div id="main">
-    <%= yield %>
+    <%= yield :layout %>
       </div>
     </div>
   </body>

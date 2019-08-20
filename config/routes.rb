@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   get 'admin' => 'admin#index'
 
@@ -11,7 +13,7 @@ Rails.application.routes.draw do
   resources :products do
     get :who_bought, on: :member
   end
-
+  # the locale is set to optional
   scope '(:locale)' do
     resources :orders
     resources :line_items

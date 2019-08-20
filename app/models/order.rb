@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 class Order < ApplicationRecord
-  before_validation :normalize_credit_card_number
   has_many :line_items, dependent: :destroy
 
   enum pay_type: {
-    "Check" => 0,
-    "Credit card" => 1,
-    "Purchase order" => 2
+    'Check' => 0,
+    'Credit Card' => 1,
+    'Purchase Order' => 2
   }
+
   validates :name, :address, :email, presence: true
   validates :pay_type, inclusion: pay_types.keys
 
@@ -15,10 +17,5 @@ class Order < ApplicationRecord
       item.cart_id = nil
       line_items << item
     end
-  end
-
-  protected
-  def normalize_credit_card_number
-    self.cc_number.gsub(/[-\s],'')
   end
 end
