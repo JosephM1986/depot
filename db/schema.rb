@@ -10,16 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_000614) do
+ActiveRecord::Schema.define(version: 2019_08_21_031822) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "number"
     t.decimal "balance", precision: 10, scale: 2, default: "0.0"
+  end
+
+  create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "carts", force: :cascade do |t|
+  create_table "discounts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
